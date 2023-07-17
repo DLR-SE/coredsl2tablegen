@@ -1,0 +1,7 @@
+/target/
+*._trace
+*.xtendbin
+*.xtextbin
+/.settings/
+/output/
+/xtend-gen/

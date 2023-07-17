@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: de.dlr.coredsl.tablegen.dbt_rise.tests
+Bundle-ManifestVersion: 2
+Bundle-Vendor: Deutsches Zentrum für Luft- und Raumfahrt e.V. (DLR)
+Bundle-Version: 2.0.0.qualifier
+Bundle-SymbolicName: de.dlr.coredsl.tablegen.tests;singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: de.dlr.coredsl.tablegen;bundle-version="1.0.0",
+ com.minres.coredsl,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.junit.jupiter.api;bundle-version="[5.0.0,6.0.0)",
+ org.eclipse.xtext.testing,
+ org.eclipse.xtext.xbase.testing
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: de.dlr.coredsl.tablegen.tests;x-internal=true

@@ -1,0 +1,6 @@
+target
+*.java_trace
+*.java._trace
+*.xtendbin
+/xtend-gen/
+/.settings/
