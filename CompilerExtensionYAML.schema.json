@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://gitlab.dlr.de/scale4edge/coredsl2tablegen/CompilerExtensionYAML.schema.json",
+  "type": "object",
+  "properties": {
+    "options": {
+      "type": "object",
+      "properties": {
+        "mayLoad": { "type": "boolean" },
+        "mayStore": { "type": "boolean" },
+        "hasSideEffects": { "type": "boolean" },
+        "isBranch": { "type": "boolean" },
+        "isTerminator": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "types": {
+      "type": "object",
+      "patternProperties": {
+        "^.*$": {
+          "type": "object",
+          "properties": {
+            "cType": {"type": "string"},
+            "fType": {"type": "string"},
+            "ice": {"type": "boolean"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "operands": {
+      "type": ["object", "null"],
+      "patternProperties": {
+        "^.*$": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"},
+            "input": {"type": "boolean"},
+            "output": {"type": "boolean"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "identifier": {"type": "string"},
+          "fileName": {"type": "string"},
+          "instructions": {
+            "type": "object",
+            "patternProperties": {
+              "^.*$": {
+                "type": "object",
+                "properties": {
+                  "mayLoad": { "type": "boolean" },
+                  "mayStore": { "type": "boolean" },
+                  "hasSideEffects": { "type": "boolean" },
+                  "isBranch": { "type": "boolean" },
+                  "isTerminator": { "type": "boolean" },
+                  "argstring": {"type": "string"},
+                  "operands": { "$ref": "#/properties/operands" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "intrinsics": {
+            "type": "object",
+            "patternProperties": {
+              "^.*$": {
+                "type": "object",
+                "properties": {
+                  "instruction": {"type": "string"},
+                  "returnType": {"type": "string"},
+                  "parameters": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {"type": "string"},
+                        "type": {"type": "string"},
+                        "operand": {"type": "string"}
+                      }
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
